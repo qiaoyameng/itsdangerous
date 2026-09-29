@@ -5,6 +5,10 @@ Unreleased
 
 -   Drop support for Python 3.8 and 3.9.
 -   Remove previously deprecated code.
+-   Add ``StreamSigner``, which signs and verifies large payloads as a
+    stream of chunks in constant memory. It produces detached
+    signatures bound to a caller-provided purpose and the payload
+    length, domain-separated from plain ``Signer`` signatures.
 
 
 Version 2.2.0

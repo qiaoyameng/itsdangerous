@@ -55,6 +55,7 @@ Table of Contents
     concepts
     serializer
     signer
+    stream
     exceptions
     timed
     url_safe
