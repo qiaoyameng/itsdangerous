@@ -5,6 +5,12 @@ Unreleased
 
 -   Drop support for Python 3.8 and 3.9.
 -   Remove previously deprecated code.
+-   Add ``OneTimeSerializer``, an optional wrapper around
+    ``TimedSerializer`` for tokens that can only be consumed once.
+    ``inspect`` validates without side effects, while ``consume``
+    atomically records a random nonce through a ``NonceStore``.
+    Includes a thread-safe ``InMemoryNonceStore`` with
+    ``purge_expired`` cleanup.
 
 
 Version 2.2.0

@@ -104,3 +104,25 @@ class BadPayload(BadData):
         #: If available, the error that indicates why the payload was
         #: not valid. This might be ``None``.
         self.original_error: Exception | None = original_error
+
+
+class BadPurpose(BadData):
+    """Raised if a signed token is valid but was created for a
+    different purpose than the one being checked. This allows
+    distinguishing tokens meant for different actions, such as email
+    confirmation versus password reset.
+    """
+
+
+class TokenConsumed(BadData):
+    """Raised if a one-time token is consumed more than once. The
+    token's nonce was already recorded by the nonce store during a
+    previous successful consume.
+    """
+
+
+class NonceStoreUnavailable(BadData):
+    """Raised if the nonce store cannot be reached to record or check
+    a nonce. Callers must treat this as a failure rather than falling
+    back to allowing the token, otherwise one-time guarantees are lost.
+    """

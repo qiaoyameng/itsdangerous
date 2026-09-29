@@ -20,3 +20,12 @@ Exceptions
 
 .. autoexception:: BadPayload
     :members:
+
+.. autoexception:: BadPurpose
+    :members:
+
+.. autoexception:: TokenConsumed
+    :members:
+
+.. autoexception:: NonceStoreUnavailable
+    :members:
