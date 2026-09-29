@@ -5,6 +5,10 @@ Unreleased
 
 -   Drop support for Python 3.8 and 3.9.
 -   Remove previously deprecated code.
+-   Add ``StreamSigner``, which signs a one-shot iterable of bytes in
+    constant memory and produces a detached signature bound to a
+    caller-provided purpose and the total body length. Verification is
+    incremental and only confirms success at EOF.
 
 
 Version 2.2.0
