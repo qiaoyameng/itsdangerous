@@ -63,6 +63,12 @@ class SignatureExpired(BadTimeSignature):
     """
 
 
+class SignatureNotYetValid(BadTimeSignature):
+    """Raised if a signature's not-before time is in the future. This
+    is a subclass of :exc:`BadTimeSignature`.
+    """
+
+
 class BadHeader(BadSignature):
     """Raised if a signed header is invalid in some form. This only
     happens for serializers that have a header that goes with the

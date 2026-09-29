@@ -5,6 +5,10 @@ Unreleased
 
 -   Drop support for Python 3.8 and 3.9.
 -   Remove previously deprecated code.
+-   Add ``TimeWindowSerializer`` for signed tokens that carry explicit
+    not-before and expiration times. It supports non-negative clock skew,
+    per-verification ``max_age``, a controllable clock, and distinct
+    ``SignatureExpired`` and ``SignatureNotYetValid`` exceptions.
 
 
 Version 2.2.0
