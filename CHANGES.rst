@@ -5,6 +5,9 @@ Unreleased
 
 -   Drop support for Python 3.8 and 3.9.
 -   Remove previously deprecated code.
+-   Add ``OneTimeSerializer`` with ``inspect`` and ``consume`` steps for
+    single-use tokens, backed by a pluggable ``NonceStore``. An
+    ``InMemoryNonceStore`` with locking and expiry cleanup is included.
 
 
 Version 2.2.0

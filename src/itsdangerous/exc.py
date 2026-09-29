@@ -104,3 +104,20 @@ class BadPayload(BadData):
         #: If available, the error that indicates why the payload was
         #: not valid. This might be ``None``.
         self.original_error: Exception | None = original_error
+
+
+class TokenAlreadyConsumed(BadData):
+    """Raised if a one-time token's nonce was already consumed. This
+    indicates a replay of a token that was successfully used before.
+
+    .. versionadded:: 2.3
+    """
+
+
+class NonceStoreUnavailable(BadData):
+    """Raised if the nonce storage backend could not be reached while
+    consuming a one-time token. The token is not accepted in this case;
+    failing open would allow replays.
+
+    .. versionadded:: 2.3
+    """
