@@ -15,6 +15,9 @@ Exceptions
 .. autoexception:: SignatureExpired
     :members:
 
+.. autoexception:: SignatureNotYetValid
+    :members:
+
 .. autoexception:: BadHeader
     :members:
 

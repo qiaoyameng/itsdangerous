@@ -63,6 +63,15 @@ class SignatureExpired(BadTimeSignature):
     """
 
 
+class SignatureNotYetValid(BadTimeSignature):
+    """Raised if a signature's validity window has not started yet. This
+    is a subclass of :exc:`BadTimeSignature`, and is distinct from
+    :exc:`SignatureExpired` so the two cases can be handled separately.
+
+    .. versionadded:: 2.3
+    """
+
+
 class BadHeader(BadSignature):
     """Raised if a signed header is invalid in some form. This only
     happens for serializers that have a header that goes with the

@@ -5,6 +5,14 @@ Unreleased
 
 -   Drop support for Python 3.8 and 3.9.
 -   Remove previously deprecated code.
+-   Add ``TimeWindowSigner`` and ``TimeWindowSerializer``, which embed a
+    signed ``not_before`` / ``expires_at`` validity window in the token
+    itself. A controllable clock can be injected, the verifier can
+    tighten the window with ``max_age`` and allow a bounded,
+    non-negative ``clock_skew``. ``SignatureNotYetValid`` is raised
+    before the window starts, distinct from ``SignatureExpired``. The
+    new format cannot be verified by ``TimestampSigner`` or
+    ``TimedSerializer`` and vice versa.
 
 
 Version 2.2.0
