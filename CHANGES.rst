@@ -5,6 +5,9 @@ Unreleased
 
 -   Drop support for Python 3.8 and 3.9.
 -   Remove previously deprecated code.
+-   Add ``TokenChunker`` to split an oversized token into signed,
+    size-limited chunks with a signed manifest, and reassemble it in any
+    order without mixing chunks across issuances.
 
 
 Version 2.2.0
