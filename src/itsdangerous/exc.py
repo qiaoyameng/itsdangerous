@@ -104,3 +104,20 @@ class BadPayload(BadData):
         #: If available, the error that indicates why the payload was
         #: not valid. This might be ``None``.
         self.original_error: Exception | None = original_error
+
+
+class BadAttenuatedToken(BadData):
+    """Raised if an attenuated token is malformed, has too many
+    caveats, or contains a caveat kind that is not known. Unknown
+    caveats are always rejected, never skipped.
+
+    .. versionadded:: 2.3
+    """
+
+
+class CaveatNotSatisfied(BadData):
+    """Raised if a caveat on an attenuated token is not satisfied by
+    the request context provided during verification.
+
+    .. versionadded:: 2.3
+    """

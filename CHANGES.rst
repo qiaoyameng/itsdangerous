@@ -5,6 +5,10 @@ Unreleased
 
 -   Drop support for Python 3.8 and 3.9.
 -   Remove previously deprecated code.
+-   Add ``Attenuator``, macaroon-style tokens that downstream holders can
+    only restrict further by appending caveats (path prefix, operation set,
+    byte limit) to a chained HMAC. Existing caveats cannot be removed,
+    reordered, or rewritten, and unknown caveats are rejected.
 
 
 Version 2.2.0
