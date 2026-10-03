@@ -104,3 +104,46 @@ class BadPayload(BadData):
         #: If available, the error that indicates why the payload was
         #: not valid. This might be ``None``.
         self.original_error: Exception | None = original_error
+
+
+class BadChunkBinding(BadSignature):
+    """Raised if a chunk belongs to a different manifest or has a
+    different position.
+    """
+
+
+class DuplicateChunk(BadData):
+    """Raised if different values are provided for the same chunk."""
+
+    def __init__(self, index: int):
+        super().__init__(f"Received conflicting chunks for index {index}.")
+        self.index = index
+
+
+class MissingChunks(BadData):
+    """Raised if one or more chunks are not present."""
+
+    def __init__(self, indices: t.Sequence[int]):
+        super().__init__(f"Missing chunks: {', '.join(map(str, indices))}.")
+        self.indices = tuple(indices)
+
+
+class ExtraChunks(BadData):
+    """Raised if chunks outside the manifest are present."""
+
+    def __init__(self, indices: t.Sequence[int]):
+        super().__init__(f"Unexpected chunks: {', '.join(map(str, indices))}.")
+        self.indices = tuple(indices)
+
+
+class ChunkTooLarge(BadData):
+    """Raised if one or more chunks exceed the configured byte budget."""
+
+    def __init__(self, indices: t.Sequence[int]):
+        joined = ", ".join(map(str, indices))
+        super().__init__(f"Chunks exceed the byte budget: {joined}.")
+        self.indices = tuple(indices)
+
+
+class BadChunkDigest(BadSignature):
+    """Raised if the assembled token does not match its manifest."""

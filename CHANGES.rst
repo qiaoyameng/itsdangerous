@@ -5,6 +5,8 @@ Unreleased
 
 -   Drop support for Python 3.8 and 3.9.
 -   Remove previously deprecated code.
+-   Add ``ChunkedSerializer`` for splitting a signed token into independently
+    signed, numbered fields and safely reassembling them out of order.
 
 
 Version 2.2.0

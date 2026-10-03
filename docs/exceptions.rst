@@ -20,3 +20,21 @@ Exceptions
 
 .. autoexception:: BadPayload
     :members:
+
+.. autoexception:: BadChunkBinding
+    :members:
+
+.. autoexception:: DuplicateChunk
+    :members:
+
+.. autoexception:: MissingChunks
+    :members:
+
+.. autoexception:: ExtraChunks
+    :members:
+
+.. autoexception:: ChunkTooLarge
+    :members:
+
+.. autoexception:: BadChunkDigest
+    :members:
